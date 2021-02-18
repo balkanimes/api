@@ -2,6 +2,7 @@ import { ApolloServer } from 'apollo-server';
 import { RedisCache } from 'apollo-server-cache-redis';
 
 import { sequelize } from './db/index.js';
+import { DBDataSource } from './DBDataSource.js';
 
 import resolvers from './resolvers.js';
 import typeDefs from './schema.js';
@@ -9,6 +10,10 @@ import typeDefs from './schema.js';
 const server = new ApolloServer({
   typeDefs,
   resolvers,
+
+  dataSources: () => ({
+    db: new DBDataSource({ sequelize }),
+  }),
 
   cache: (process.env.REDIS_URL || process.env.REDIS_HOST)
     && new RedisCache(process.env.REDIS_URL || {
