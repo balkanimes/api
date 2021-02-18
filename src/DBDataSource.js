@@ -5,6 +5,22 @@ export class DBDataSource extends DataSource {
     super();
     this.db = sequelize;
   }
+
+  getPipelines() {
+    return this.db.models.Pipeline.findAll();
+  }
+
+  getPipeline(id) {
+    return this.db.models.Pipeline.findByPk(id);
+  }
+
+  getEntries() {
+    return this.db.models.Entry.findAll();
+  }
+
+  getEntry(id) {
+    return this.db.models.Entry.findByPk(id);
+  }
 }
 
 export default DBDataSource;
