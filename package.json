@@ -17,6 +17,7 @@
     "apollo-server": "^2.21.0",
     "apollo-server-cache-redis": "^1.2.3",
     "graphql": "^15.5.0",
+    "graphql-type-json": "^0.3.2",
     "pg": "^8.5.1",
     "sequelize": "^6.5.0"
   }
