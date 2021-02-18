@@ -1,0 +1,29 @@
+version: "3"
+
+services: 
+  apollo:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports: [ 4000:4000 ]
+    environment: 
+      REDIS_HOST: redis
+      DATABASE_URL: postgres://postgres:secret@db:5432/postgres
+    volumes: 
+      - ./src:/app/src
+    depends_on: [ redis, db ]
+  
+  db:
+    image: postgres:alpine
+    environment:
+      POSTGRES_PASSWORD: secret
+
+  adminer:
+    image: adminer
+    environment: 
+      ADMINER_DESIGN: pepa-linha
+      ADMINER_DEFAULT_SERVER: db
+    ports: [ 8080:8080 ]
+  
+  redis:
+    image: redis

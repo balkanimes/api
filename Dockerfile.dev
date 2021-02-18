@@ -1,0 +1,11 @@
+FROM node:15-alpine
+
+RUN npm install -g nodemon
+
+WORKDIR /app
+
+COPY package* ./
+RUN npm install
+
+USER node
+ENTRYPOINT [ "nodemon", "src" ]
