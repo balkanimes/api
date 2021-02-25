@@ -1,16 +1,14 @@
 version: "3"
 
 services: 
-  apollo:
-    build:
-      context: .
-      dockerfile: Dockerfile.dev
-    ports: [ 4000:4000 ]
+  app:
+    build: .
+    command: /bin/sh -c "while sleep 1000; do :; done"
     environment: 
       REDIS_HOST: redis
       DATABASE_URL: postgres://postgres:secret@db:5432/postgres
     volumes: 
-      - ./src:/app/src
+      - ../:/workspace
     depends_on: [ redis, db ]
   
   db:
