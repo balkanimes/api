@@ -49,13 +49,17 @@ export class DBDataSource extends DataSource {
     }
 
     entry.name = conf.name ?? entry.name;
-    entry.pipeline = conf.pipeline ?? entry.pipeline;
+    entry.PipelineId = conf.pipeline ?? entry.PipelineId;
     entry.directory = conf.directory ?? entry.directory;
     entry.config = conf.config ?? entry.config;
     entry.filter_start = conf.filter?.start ?? entry.filter_start;
     entry.filter_end = conf.filter?.end ?? entry.filter_end;
     entry.filter_includes = conf.filter?.includes ?? entry.filter_includes;
     entry.filter_excludes = conf.filter?.excludes ?? entry.filter_excludes;
+
+    if ((await entry.getPipeline()) === null) {
+      return false;
+    }
 
     await entry.save();
     return true;
