@@ -9,6 +9,7 @@ type Query {
   pipeline(id: Int!): Pipeline
   entries: [Entry!]
   entry(id: Int!): Entry
+  providers: [String!]
   schema(provider: String!): [SchemaEntry!]
 }
 
