@@ -7,11 +7,14 @@
   "main": "src/index.js",
   "repository": {
     "type": "git",
-    "url": "https://iut-info.univ-reims.fr/gitlab/balkanimes/api"
+    "url": "git+https://github.com/balkanimes/api.git"
   },
   "keywords": [],
-  "author": "",
-  "license": "ISC",
+  "author": "Clément Dubreuil",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/balkanimes/api/issues"
+  },
   "dependencies": {
     "apollo-datasource": "^0.7.3",
     "apollo-server": "^2.21.0",
