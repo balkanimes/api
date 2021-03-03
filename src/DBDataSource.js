@@ -64,6 +64,14 @@ export class DBDataSource extends DataSource {
     await entry.save();
     return true;
   }
+
+  async deletePipeline(id) {
+    return Boolean(await this.db.models.Pipeline.destroy({ where: { id } }));
+  }
+
+  async deleteEntry(id) {
+    return Boolean(await this.db.models.Entry.destroy({ where: { id } }));
+  }
 }
 
 export default DBDataSource;

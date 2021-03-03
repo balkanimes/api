@@ -16,6 +16,8 @@ export default {
   Mutation: {
     pipeline: (_, { id, conf }, { dataSources }) => dataSources.db.createPipeline(id, conf),
     entry: (_, { id, conf }, { dataSources }) => dataSources.db.createEntry(id, conf),
+    deletePipeline: (_, { id }, { dataSources }) => dataSources.db.deletePipeline(id),
+    deleteEntry: (_, { id }, { dataSources }) => dataSources.db.deleteEntry(id),
   },
 
   Entry: {
