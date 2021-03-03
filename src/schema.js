@@ -17,7 +17,7 @@ type Pipeline {
   id: Int!
   name: String!
   provider: String!
-  config: JSON
+  config: JSONObject
 }
 
 type Entry {
@@ -26,7 +26,7 @@ type Entry {
   pipeline: Pipeline!
   directory: String!
   filter: Filter
-  config: JSON
+  config: JSONObject
 }
 
 type Filter {
@@ -56,7 +56,7 @@ type Mutation {
 input PipelineInput {
   name: String
   provider: String
-  config: JSON
+  config: JSONObject
 }
 
 input EntryInput {
@@ -65,7 +65,7 @@ input EntryInput {
   pipeline: Int
   directory: String
   filter: FilterInput
-  config: JSON
+  config: JSONObject
 }
 
 input FilterInput {
