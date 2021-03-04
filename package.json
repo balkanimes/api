@@ -1,8 +1,7 @@
 {
-  "name": "api",
-  "version": "1.0.0",
+  "name": "@balkanimes/api",
+  "version": "0.1.0",
   "description": "",
-  "private": true,
   "type": "module",
   "main": "src/index.js",
   "repository": {
@@ -14,6 +13,9 @@
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/balkanimes/api/issues"
+  },
+  "publishConfig": {
+    "registry":"https://npm.pkg.github.com"
   },
   "dependencies": {
     "apollo-datasource": "^0.7.3",
