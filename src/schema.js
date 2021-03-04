@@ -47,8 +47,8 @@ type SchemaEntry {
 }
 
 type Mutation {
-  pipeline(id: Int, conf: PipelineInput!): Boolean!
-  entry(id: Int, conf: EntryInput!): Boolean!
+  pipeline(id: Int, conf: PipelineInput!): Int
+  entry(id: Int, conf: EntryInput!): Int
   deletePipeline(id: Int!): Boolean!
   deleteEntry(id: Int!): Boolean!
 }
