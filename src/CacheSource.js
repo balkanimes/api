@@ -13,6 +13,14 @@ export class CacheSource extends DataSource {
     return this.get(`hehdon:provider:${name}`);
   }
 
+  async setProviders(providers) {
+    await Promise.all(providers.map(
+      p => this.cache.set(`hehdon:provider:${p.name}`, JSON.stringify(p.schema))
+    ));
+    await this.cache.set('hehdon:provider', JSON.stringify(providers.map(v => v.name)));
+    return true;
+  }
+
   async get(key, ifEmpty) {
     const data = await this.cache.get(key);
     return data

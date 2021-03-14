@@ -51,6 +51,7 @@ type Mutation {
   entry(id: Int, conf: EntryInput!): Int
   deletePipeline(id: Int!): Boolean!
   deleteEntry(id: Int!): Boolean!
+  providers(c: [SchemaInput!]!): Boolean!
 }
 
 input PipelineInput {
@@ -73,5 +74,20 @@ input FilterInput {
   end: Int
   includes: [String!]
   excludes: [String!]
+}
+
+input SchemaInput {
+  name: String!
+  schema: [SchemaEntryInput!]!
+}
+
+input SchemaEntryInput {
+  name: String!
+  type: String!
+  array: Boolean
+  description: String!
+  required: Boolean
+  "Default value (display only)"
+  default: String
 }
 `;

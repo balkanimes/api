@@ -18,6 +18,7 @@ export default {
     entry: (_, { id, conf }, { dataSources }) => dataSources.db.createEntry(id, conf),
     deletePipeline: (_, { id }, { dataSources }) => dataSources.db.deletePipeline(id),
     deleteEntry: (_, { id }, { dataSources }) => dataSources.db.deleteEntry(id),
+    providers: (_, { c }, { dataSources }) => dataSources.cache.setProviders(c),
   },
 
   Entry: {
