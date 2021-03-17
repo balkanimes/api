@@ -15,9 +15,17 @@ export class CacheSource extends DataSource {
 
   async setProviders(providers) {
     await Promise.all(providers.map(
-      p => this.cache.set(`hehdon:provider:${p.name}`, JSON.stringify(p.schema))
+      p => this.cache.set(
+        `hehdon:provider:${p.name}`,
+        JSON.stringify(p.schema),
+        { cacheOptions: { ttl: this.context.cacheTTL } },
+      )
     ));
-    await this.cache.set('hehdon:provider', JSON.stringify(providers.map(v => v.name)));
+    await this.cache.set(
+      'hehdon:provider',
+      JSON.stringify(providers.map(v => v.name)),
+      { cacheOptions: { ttl: this.context.cacheTTL } },
+    );
     return true;
   }
 

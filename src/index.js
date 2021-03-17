@@ -26,6 +26,10 @@ const server = new ApolloServer({
     password: process.env.REDIS_PASSWORD,
     username: process.env.REDIS_USERNAME,
   }),
+
+  context: () => ({
+    cacheTTL: 31557600, // 1 year
+  }),
 });
 
 sequelize.sync()
