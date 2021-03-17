@@ -1,7 +1,8 @@
 import { DataSource } from 'apollo-datasource';
 
 export class CacheSource extends DataSource {
-  initialize({ cache }) {
+  initialize({ context, cache }) {
+    this.context = context;
     this.cache = cache;
   }
 
